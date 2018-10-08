@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RegexViewController.swift
 //  GANK
 //
 //  Created by Steve Sparks on 10/5/18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class RegexViewController: NSViewController {
     @IBOutlet var normRegexField: NSTextField!
 
     @IBOutlet var normLabel: NSTextFieldCell!
@@ -78,7 +78,7 @@ class ViewController: NSViewController {
     }
 }
 
-extension ViewController: NSTextFieldDelegate {
+extension RegexViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         if let object = obj.object as? NSTextField, let norm = normRegexField, object == norm {
             normalToEscaped()
@@ -121,7 +121,7 @@ extension ViewController: NSTextFieldDelegate {
     }
 }
 
-extension ViewController: NSTextViewDelegate {
+extension RegexViewController: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         resetViews()
         invalidateRestorableState()
@@ -157,7 +157,7 @@ extension String {
     }
 }
 
-extension ViewController {
+extension RegexViewController {
 
     enum RestorationKeys: String {
         case escapedRegex

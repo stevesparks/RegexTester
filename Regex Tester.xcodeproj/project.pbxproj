@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E1B4B23216ADF16004C4103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B22216ADF16004C4103 /* AppDelegate.swift */; };
-		0E1B4B25216ADF16004C4103 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B24216ADF16004C4103 /* ViewController.swift */; };
+		0E1B4B25216ADF16004C4103 /* RegexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B24216ADF16004C4103 /* RegexViewController.swift */; };
 		0E1B4B27216ADF17004C4103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B4B26216ADF17004C4103 /* Assets.xcassets */; };
 		0E1B4B2A216ADF18004C4103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B4B28216ADF17004C4103 /* Main.storyboard */; };
 		0E1B4B36216ADF18004C4103 /* Regex_TesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B35216ADF18004C4103 /* Regex_TesterTests.swift */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		0E1B4B1F216ADF16004C4103 /* Regex Tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Regex Tester.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1B4B22216ADF16004C4103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0E1B4B24216ADF16004C4103 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E1B4B24216ADF16004C4103 /* RegexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexViewController.swift; sourceTree = "<group>"; };
 		0E1B4B26216ADF17004C4103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E1B4B29216ADF18004C4103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E1B4B2B216ADF18004C4103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				0E1B4B22216ADF16004C4103 /* AppDelegate.swift */,
-				0E1B4B24216ADF16004C4103 /* ViewController.swift */,
+				0E1B4B24216ADF16004C4103 /* RegexViewController.swift */,
 				0E1B4B26216ADF17004C4103 /* Assets.xcassets */,
 				0E1B4B28216ADF17004C4103 /* Main.storyboard */,
 				0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */,
@@ -199,7 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E1B4B41216ADF8B004C4103 /* RegexOptionsViewController.swift in Sources */,
-				0E1B4B25216ADF16004C4103 /* ViewController.swift in Sources */,
+				0E1B4B25216ADF16004C4103 /* RegexViewController.swift in Sources */,
 				0E1B4B23216ADF16004C4103 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
