@@ -35,6 +35,7 @@ class RegexViewController: NSViewController {
             preconditionFailure("GERP")
         }
         do {
+            self.regex = nil
             self.regex = try NSRegularExpression(pattern: normRegexField.stringValue, options: self.options)
             normLabel.textColor = .black
             let (attr, count) = self.textView.string.attributedString(highlightedWithRegex: self.regex, highlightSubgroups: highlightSubgroups)
@@ -54,7 +55,11 @@ class RegexViewController: NSViewController {
     }
 
     @IBAction func didTapCopy(_ sender: Any?) {
-        let output = "let regex = try? NSRegularExpression(pattern: \"\(escapedRegexField.stringValue)\", options: [.dotMatchesLineSeparators])"
+        // Don't copy bad regex
+        guard regex != nil else { return }
+
+        let output = ["let regexStr = \"\(escapedRegexField.stringValue)\"",
+            "let regex = try? NSRegularExpression(pattern: regexStr, options: [.dotMatchesLineSeparators])"].joined(separator: "\n")
         NSPasteboard.general.clearContents()
         print(" \(NSPasteboard.general.setString(output, forType: .string))")
     }
@@ -141,17 +146,16 @@ extension String {
 
         for result in matches {
             var rangeCtr = 0
-            highlightHue = fmod(highlightHue + 0.11, 1.0)
+            highlightHue = fmod(highlightHue + 0.131, 1.0)
 
             let rangeCount = highlightSubgroups ? result.numberOfRanges : 1
             while rangeCtr < rangeCount {
                 let range = result.range(at: rangeCtr)
                 let mod = (CGFloat(rangeCtr) * 0.05)
-                let color = NSColor(hue: highlightHue, saturation: 0.1 + mod, brightness: (1.0 - mod), alpha: 1.0)
+                let color = NSColor(hue: highlightHue, saturation: 0.15 + mod, brightness: (1.0 - mod), alpha: 1.0)
                 retval.setAttributes([.backgroundColor: color], range: range)
                 rangeCtr += 1
             }
-            print("dd > \(result.numberOfRanges)")
         }
         return (retval, matches.count)
     }
