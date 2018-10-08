@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Regex Tester
+//  GANK
 //
-//  Created by Steve Sparks on 10/7/18.
+//  Created by Steve Sparks on 10/5/18.
 //  Copyright © 2018 SOG. All rights reserved.
 //
 
@@ -21,6 +21,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+
+    func application(_ app: NSApplication, didDecodeRestorableState coder: NSCoder) {
+
+    }
 
 }
 

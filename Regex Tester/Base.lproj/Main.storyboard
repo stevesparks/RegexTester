@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -10,11 +11,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Regex Tester" id="1Xt-HY-uBw">
+                            <menuItem title="GANK" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Regex Tester" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="GANK" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Regex Tester" id="5kV-Vb-QxS">
+                                        <menuItem title="About GANK" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -28,7 +29,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Regex Tester" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide GANK" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -46,7 +47,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Regex Tester" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit GANK" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -659,7 +660,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Regex Tester Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="GANK Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Regex_Tester" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,11 +684,12 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Regex Tester" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="RegexTester" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <accessibility identifier="regexTester"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -700,18 +702,362 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="Lxq-0d-tyX">
+            <objects>
+                <windowController storyboardIdentifier="options" id="hyU-OJ-WfS" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Xmy-dQ-vB5">
+                        <windowStyleMask key="styleMask" titled="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="hyU-OJ-WfS" id="cb2-vS-DQi"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="caA-kg-JfA" kind="relationship" relationship="window.shadowedContentViewController" id="cm7-Ff-hvV"/>
+                    </connections>
+                </windowController>
+                <customObject id="ofb-a2-aFx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="302"/>
+        </scene>
+        <!--Regex Options View Controller-->
+        <scene sceneID="Yy2-Mw-RmV">
+            <objects>
+                <viewController id="caA-kg-JfA" customClass="RegexOptionsViewController" customModule="Regex_Tester" sceneMemberID="viewController">
+                    <view key="view" id="ife-ka-3JW">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="167"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xiu-2Z-FR1">
+                                <rect key="frame" x="22" y="73" width="437" height="74"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPT-kF-sZT">
+                                        <rect key="frame" x="0.0" y="0.0" width="216" height="74"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="shE-TO-E8b">
+                                                <rect key="frame" x="-2" y="58" width="121" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Case Insensitive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kNb-g0-DiC">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="iSi-uL-iEG"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ske-gh-3DC">
+                                                <rect key="frame" x="-2" y="38" width="220" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Allow comments and whitespace" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qU0-eV-E46">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="v8R-DG-oVH"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Tk-mj-p25">
+                                                <rect key="frame" x="-2" y="18" width="159" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Ignore metacharacters" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Q2-du-inE">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="oPq-zZ-8Ek"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fpx-Jz-qGy">
+                                                <rect key="frame" x="-2" y="-2" width="193" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Dot matches line separators" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wn3-5e-Kjv">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="Y4S-WR-oPZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUX-B1-Voe">
+                                        <rect key="frame" x="236" y="0.0" width="201" height="74"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LRp-7D-pdO">
+                                                <rect key="frame" x="-2" y="58" width="145" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Anchors match lines" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZoX-18-Kxw">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="ovX-2i-fsb"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fz6-MR-ifQ">
+                                                <rect key="frame" x="-2" y="38" width="170" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Use Unix line separators" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Sdr-wi-bnV">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="1wq-3n-4bW"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Khs-iW-zHf">
+                                                <rect key="frame" x="-2" y="18" width="205" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Use Unicode word boundaries" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="niO-G5-W4t">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="WdD-EY-6Yk"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BXh-bZ-BXX">
+                                                <rect key="frame" x="-2" y="-2" width="145" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Highlight subgroups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="UyV-mZ-MG1">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didChangeButton" target="caA-kg-JfA" id="K4I-3g-ATM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yGV-Of-7Vt">
+                                <rect key="frame" x="394" y="13" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="st8-33-NyC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="didTapDone:" target="caA-kg-JfA" id="fED-bS-08b"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yGV-Of-7Vt" secondAttribute="bottom" constant="20" id="1yu-AV-rgq"/>
+                            <constraint firstAttribute="trailing" secondItem="yGV-Of-7Vt" secondAttribute="trailing" constant="20" id="33a-7O-Vpd"/>
+                            <constraint firstItem="Xiu-2Z-FR1" firstAttribute="top" secondItem="ife-ka-3JW" secondAttribute="top" constant="20" id="PuV-dM-1cl"/>
+                            <constraint firstItem="Xiu-2Z-FR1" firstAttribute="centerX" secondItem="ife-ka-3JW" secondAttribute="centerX" id="Vpu-JS-CwM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allowsCommentsButton" destination="Ske-gh-3DC" id="y8r-HI-u3J"/>
+                        <outlet property="anchorsMatchLinesButton" destination="LRp-7D-pdO" id="dcc-PM-y6F"/>
+                        <outlet property="caseInsensitiveButton" destination="shE-TO-E8b" id="E3J-2A-u7Y"/>
+                        <outlet property="dotMatchesLineSeparatorsButton" destination="fpx-Jz-qGy" id="Yev-lL-ahe"/>
+                        <outlet property="highlightSubgroupsButton" destination="BXh-bZ-BXX" id="u87-J9-8kU"/>
+                        <outlet property="ignoreMetacharactersButton" destination="5Tk-mj-p25" id="Lqm-v7-naW"/>
+                        <outlet property="useUnicodeWordBoundariesButton" destination="Khs-iW-zHf" id="OQL-uk-8fE"/>
+                        <outlet property="useUnixLineSeparatorsButton" destination="Fz6-MR-ifQ" id="ASG-Xm-lVz"/>
+                    </connections>
+                </viewController>
+                <customObject id="gmu-t2-WCA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="401.5"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regexTesterViewC" id="XfG-lQ-9wD" customClass="ViewController" customModule="Regex_Tester" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="899" height="342"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5NB-gw-e9B">
+                                <rect key="frame" x="20" y="20" width="859" height="302"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250.99998474121094" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7bB-S3-4Al">
+                                        <rect key="frame" x="0.0" y="280" width="835" height="22"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="RGa-2B-Slv">
+                                                <rect key="frame" x="-2" y="5" width="106" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Regex (norm)" id="0rS-Kw-wJF">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ge8-ct-lwI">
+                                                <rect key="frame" x="106" y="0.0" width="665" height="22"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="2oG-k8-o7w">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <action selector="normalTextDidChange:" target="XfG-lQ-9wD" id="5Dl-ZG-SHb"/>
+                                                </connections>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YxV-or-ANX">
+                                                <rect key="frame" x="769" y="-6" width="72" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vbA-6p-KHn">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didTapCopy:" target="XfG-lQ-9wD" id="5Wq-wf-JVz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0X-Gp-MIG">
+                                        <rect key="frame" x="0.0" y="139" width="835" height="137"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Fn-bj-Lan">
+                                                <rect key="frame" x="-2" y="60" width="106" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Regex (escaped)" id="Lba-hc-cIi">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GzL-aJ-fVI">
+                                                <rect key="frame" x="106" y="58" width="667" height="22"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="8ff-aw-Hhh">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <action selector="escapedTextDidChange:" target="XfG-lQ-9wD" id="ENW-Ja-4JX"/>
+                                                </connections>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swO-CL-Xhx">
+                                                <rect key="frame" x="771" y="51" width="70" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Opts" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cWD-dO-Hdk">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didTapOptions:" target="XfG-lQ-9wD" id="ARV-vL-7DO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <scrollView appearanceType="aqua" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-Vz-uJb">
+                                        <rect key="frame" x="0.0" y="0.0" width="835" height="135"/>
+                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="keS-R4-bLj">
+                                            <rect key="frame" x="0.0" y="0.0" width="835" height="135"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" incrementalSearchingEnabled="YES" smartInsertDelete="YES" id="5PR-EP-OEz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="835" height="135"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="minSize" width="835" height="135"/>
+                                                    <size key="maxSize" width="835" height="10000000"/>
+                                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                </textView>
+                                            </subviews>
+                                        </clipView>
+                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="gnM-eg-LPQ">
+                                            <rect key="frame" x="819" y="0.0" width="16" height="135"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="CFf-Vz-uJb" firstAttribute="trailing" secondItem="YxV-or-ANX" secondAttribute="trailing" id="184-Bi-cfz"/>
+                                    <constraint firstItem="CFf-Vz-uJb" firstAttribute="trailing" secondItem="swO-CL-Xhx" secondAttribute="trailing" id="G6B-nk-w8v"/>
+                                    <constraint firstItem="6Fn-bj-Lan" firstAttribute="width" secondItem="RGa-2B-Slv" secondAttribute="width" id="qEX-fp-ClD"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ViH-KL-ngq">
+                                <rect key="frame" x="18" y="0.0" width="37" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="8vi-kS-3ay">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5NB-gw-e9B" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="0AS-sH-Mve"/>
+                            <constraint firstItem="ViH-KL-ngq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="PLR-ft-HwD"/>
+                            <constraint firstItem="5NB-gw-e9B" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="RfS-OC-8Di"/>
+                            <constraint firstAttribute="bottom" secondItem="ViH-KL-ngq" secondAttribute="bottom" id="X8H-YR-nbu"/>
+                            <constraint firstAttribute="bottom" secondItem="5NB-gw-e9B" secondAttribute="bottom" constant="20" id="gqy-wm-OUw"/>
+                            <constraint firstAttribute="trailing" secondItem="5NB-gw-e9B" secondAttribute="trailing" constant="20" id="yRo-Jq-Nv8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="escapedRegexField" destination="GzL-aJ-fVI" id="5dV-N7-e8c"/>
+                        <outlet property="normLabel" destination="0rS-Kw-wJF" id="Ttl-T0-zpS"/>
+                        <outlet property="normRegexField" destination="Ge8-ct-lwI" id="6Fw-LV-Aiu"/>
+                        <outlet property="statusLabel" destination="ViH-KL-ngq" id="5mC-g5-opn"/>
+                        <outlet property="textView" destination="5PR-EP-OEz" id="WHf-xT-m59"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="156.5" y="717"/>
         </scene>
     </scenes>
 </document>

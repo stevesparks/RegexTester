@@ -12,6 +12,7 @@
 		0E1B4B27216ADF17004C4103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B4B26216ADF17004C4103 /* Assets.xcassets */; };
 		0E1B4B2A216ADF18004C4103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B4B28216ADF17004C4103 /* Main.storyboard */; };
 		0E1B4B36216ADF18004C4103 /* Regex_TesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B35216ADF18004C4103 /* Regex_TesterTests.swift */; };
+		0E1B4B41216ADF8B004C4103 /* RegexOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		0E1B4B31216ADF18004C4103 /* Regex TesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Regex TesterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1B4B35216ADF18004C4103 /* Regex_TesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex_TesterTests.swift; sourceTree = "<group>"; };
 		0E1B4B37216ADF18004C4103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				0E1B4B24216ADF16004C4103 /* ViewController.swift */,
 				0E1B4B26216ADF17004C4103 /* Assets.xcassets */,
 				0E1B4B28216ADF17004C4103 /* Main.storyboard */,
+				0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */,
 				0E1B4B2B216ADF18004C4103 /* Info.plist */,
 				0E1B4B2C216ADF18004C4103 /* Regex_Tester.entitlements */,
 			);
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1B4B41216ADF8B004C4103 /* RegexOptionsViewController.swift in Sources */,
 				0E1B4B25216ADF16004C4103 /* ViewController.swift in Sources */,
 				0E1B4B23216ADF16004C4103 /* AppDelegate.swift in Sources */,
 			);
