@@ -5,7 +5,7 @@ A simple Mac app for making Swift regex patterns.
 
 The `opts` button allows you to toggle all the options in the `NSRegularExpression.Options` option set, and `copy` produces:
 
-```
+```swift
 let regex = try? NSRegularExpression(pattern: "commit ([0-9a-f]{40}).*?(Merge: [0-9a-f ]{15}\\n)?\\nAuthor: (.*?)\\nDate: (.*?)\\n\\n(.*?)\\n\\n", options: [.dotMatchesLineSeparators])
 ```
 
@@ -24,7 +24,7 @@ Please do! Open a pull request.
 
 *Personally I do it this way. It is more maintainable.
 
-```
+```swift
 extension NSRegularExpression {
 
     enum Regex: String {
