@@ -1,12 +1,13 @@
 # RegexTester
 A simple Mac app for making Swift regex patterns.
 
-![Screenshot of app showing a matched Git log](snap.png)
+![Screenshot of app showing a matched Git log](regextester.gif)
 
 The `opts` button allows you to toggle all the options in the `NSRegularExpression.Options` option set, and `copy` produces:
 
 ```swift
-let regex = try? NSRegularExpression(pattern: "commit ([0-9a-f]{40}).*?(Merge: [0-9a-f ]{15}\\n)?\\nAuthor: (.*?)\\nDate: (.*?)\\n\\n(.*?)\\n\\n", options: [.dotMatchesLineSeparators])
+let regexStr = "commit ([0-9a-f]{40}).*?(Merge: [0-9a-f ]{15}\\n)?\\nAuthor: (.*?)\\nDate:   (.*?)\\n(.*?\\n\\n)"
+let regex = try? NSRegularExpression(pattern: regexStr, options: [[.dotMatchesLineSeparators]])
 ```
 
 which you can paste into your code and mod at will.*

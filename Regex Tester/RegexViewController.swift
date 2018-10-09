@@ -62,6 +62,7 @@ class RegexViewController: NSViewController {
             vc.options = self.options
             vc.highlightSubgroups = self.highlightSubgroups
 
+            window.center()
             let application = NSApplication.shared
             application.runModal(for: window)
 
