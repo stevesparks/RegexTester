@@ -13,6 +13,8 @@
 		0E1B4B2A216ADF18004C4103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B4B28216ADF17004C4103 /* Main.storyboard */; };
 		0E1B4B36216ADF18004C4103 /* Regex_TesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B35216ADF18004C4103 /* Regex_TesterTests.swift */; };
 		0E1B4B41216ADF8B004C4103 /* RegexOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */; };
+		0EFB22E9216CD056006E32C3 /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB22E8216CD056006E32C3 /* NSRegularExpression+Extensions.swift */; };
+		0EFB22EB216CD5FF006E32C3 /* RegexHighlightingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFB22EA216CD5FF006E32C3 /* RegexHighlightingTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		0E1B4B35216ADF18004C4103 /* Regex_TesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex_TesterTests.swift; sourceTree = "<group>"; };
 		0E1B4B37216ADF18004C4103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexOptionsViewController.swift; sourceTree = "<group>"; };
+		0EFB22E8216CD056006E32C3 /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
+		0EFB22EA216CD5FF006E32C3 /* RegexHighlightingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHighlightingTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				0E1B4B22216ADF16004C4103 /* AppDelegate.swift */,
-				0E1B4B24216ADF16004C4103 /* RegexViewController.swift */,
-				0E1B4B26216ADF17004C4103 /* Assets.xcassets */,
 				0E1B4B28216ADF17004C4103 /* Main.storyboard */,
+				0EFB22E8216CD056006E32C3 /* NSRegularExpression+Extensions.swift */,
+				0E1B4B24216ADF16004C4103 /* RegexViewController.swift */,
+				0EFB22EA216CD5FF006E32C3 /* RegexHighlightingTextView.swift */,
 				0E1B4B40216ADF8B004C4103 /* RegexOptionsViewController.swift */,
+				0E1B4B26216ADF17004C4103 /* Assets.xcassets */,
 				0E1B4B2B216ADF18004C4103 /* Info.plist */,
 				0E1B4B2C216ADF18004C4103 /* Regex_Tester.entitlements */,
 			);
@@ -198,7 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EFB22EB216CD5FF006E32C3 /* RegexHighlightingTextView.swift in Sources */,
 				0E1B4B41216ADF8B004C4103 /* RegexOptionsViewController.swift in Sources */,
+				0EFB22E9216CD056006E32C3 /* NSRegularExpression+Extensions.swift in Sources */,
 				0E1B4B25216ADF16004C4103 /* RegexViewController.swift in Sources */,
 				0E1B4B23216ADF16004C4103 /* AppDelegate.swift in Sources */,
 			);

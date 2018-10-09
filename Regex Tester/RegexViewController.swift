@@ -15,7 +15,7 @@ class RegexViewController: NSViewController {
     @IBOutlet var escapedRegexField: NSTextField!
     @IBOutlet var statusLabel: NSTextField!
 
-    @IBOutlet var textView: NSTextView!
+    @IBOutlet var textView: RegexHighlightingTextView!
     var highlightSubgroups = true
 
     var options: NSRegularExpression.Options = [.dotMatchesLineSeparators]
@@ -31,26 +31,16 @@ class RegexViewController: NSViewController {
     var regex: NSRegularExpression?
 
     func resetViews() {
-        guard let insertionPoint = self.textView.selectedRanges.first as? NSRange else {
-            preconditionFailure("GERP")
-        }
         do {
             self.regex = nil
             self.regex = try NSRegularExpression(pattern: normRegexField.stringValue, options: self.options)
             normLabel.textColor = .black
-            let (attr, count) = self.textView.string.attributedString(highlightedWithRegex: self.regex, highlightSubgroups: highlightSubgroups)
-            self.textView.textStorage?.setAttributedString(attr)
-            self.statusLabel.stringValue = "Found \(count) instances."
+            textView.regex = self.regex
+            let count = textView.numberOfMatches
+            self.statusLabel.stringValue = "Found \(count) instances. Options = \(options.stringValue)"
         } catch {
             normLabel.textColor = .red
             statusLabel.stringValue = "Malformed regex."
-        }
-
-        self.textView.backgroundColor = .white
-        self.textView.textColor = .black
-        self.textView.setSelectedRange(insertionPoint)
-        if let font = NSFont(name: "Anonymous", size: 12) {
-            textView.font = font
         }
     }
 
@@ -59,9 +49,9 @@ class RegexViewController: NSViewController {
         guard regex != nil else { return }
 
         let output = ["let regexStr = \"\(escapedRegexField.stringValue)\"",
-            "let regex = try? NSRegularExpression(pattern: regexStr, options: [.dotMatchesLineSeparators])"].joined(separator: "\n")
+            "let regex = try? NSRegularExpression(pattern: regexStr, options: [\(options.stringValue)])"].joined(separator: "\n")
         NSPasteboard.general.clearContents()
-        print(" \(NSPasteboard.general.setString(output, forType: .string))")
+        NSPasteboard.general.setString(output, forType: .string)
     }
 
     @IBAction func didTapOptions(_ sender: Any?) {
@@ -71,14 +61,18 @@ class RegexViewController: NSViewController {
             let vc = optionsWindowController.contentViewController as? RegexOptionsViewController {
             vc.options = self.options
             vc.highlightSubgroups = self.highlightSubgroups
+
             let application = NSApplication.shared
             application.runModal(for: window)
+
             self.options = vc.options
             self.highlightSubgroups = vc.highlightSubgroups
+            textView.options = vc.options
+            textView.highlightSubgroups = vc.highlightSubgroups
             window.close()
             resetViews()
         } else {
-            print("FML")
+            print("No storyboard found")
         }
     }
 }
@@ -133,46 +127,20 @@ extension RegexViewController: NSTextViewDelegate {
     }
 }
 
-
-extension String {
-    func attributedString(highlightedWithRegex regex: NSRegularExpression? = nil, highlightSubgroups: Bool = true) -> (NSAttributedString, Int) {
-        let retval = NSMutableAttributedString(string: self)
-        guard let regex = regex else {
-            return (retval, 0)
-        }
-
-        var highlightHue: CGFloat = 0.0
-        let matches = regex.matches(in: self, range: NSMakeRange(0, utf16.count))
-
-        for result in matches {
-            var rangeCtr = 0
-            highlightHue = fmod(highlightHue + 0.131, 1.0)
-
-            let rangeCount = highlightSubgroups ? result.numberOfRanges : 1
-            while rangeCtr < rangeCount {
-                let range = result.range(at: rangeCtr)
-                let mod = (CGFloat(rangeCtr) * 0.05)
-                let color = NSColor(hue: highlightHue, saturation: 0.15 + mod, brightness: (1.0 - mod), alpha: 1.0)
-                retval.setAttributes([.backgroundColor: color], range: range)
-                rangeCtr += 1
-            }
-        }
-        return (retval, matches.count)
-    }
-}
-
 extension RegexViewController {
 
     enum RestorationKeys: String {
         case escapedRegex
         case normalRegex
         case textViewString
+        case options
     }
 
     override func encodeRestorableState(with coder: NSCoder) {
         coder.encode(escapedRegexField.stringValue, forKey: RestorationKeys.escapedRegex.rawValue)
         coder.encode(normRegexField.stringValue, forKey: RestorationKeys.normalRegex.rawValue)
         coder.encode(textView.string, forKey: RestorationKeys.textViewString.rawValue)
+        coder.encode(options, forKey: RestorationKeys.options.rawValue)
     }
 
     override func restoreState(with coder: NSCoder) {
@@ -184,6 +152,9 @@ extension RegexViewController {
         }
         if let str = coder.decodeObject(forKey: RestorationKeys.textViewString.rawValue) as? String {
             textView.string = str
+        }
+        if let opts = coder.decodeObject(forKey: RestorationKeys.options.rawValue) as? NSRegularExpression.Options {
+            options = opts
         }
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.resetViews()

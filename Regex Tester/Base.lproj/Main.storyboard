@@ -924,14 +924,14 @@
                                                     <action selector="normalTextDidChange:" target="XfG-lQ-9wD" id="5Dl-ZG-SHb"/>
                                                 </connections>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YxV-or-ANX">
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swO-CL-Xhx">
                                                 <rect key="frame" x="771" y="-6" width="72" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vbA-6p-KHn">
+                                                <buttonCell key="cell" type="push" title="Opts" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cWD-dO-Hdk">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="didTapCopy:" target="XfG-lQ-9wD" id="5Wq-wf-JVz"/>
+                                                    <action selector="didTapOptions:" target="XfG-lQ-9wD" id="ARV-vL-7DO"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -968,14 +968,14 @@
                                                     <action selector="escapedTextDidChange:" target="XfG-lQ-9wD" id="ENW-Ja-4JX"/>
                                                 </connections>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swO-CL-Xhx">
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YxV-or-ANX">
                                                 <rect key="frame" x="771" y="51" width="72" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Opts" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cWD-dO-Hdk">
+                                                <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vbA-6p-KHn">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="didTapOptions:" target="XfG-lQ-9wD" id="ARV-vL-7DO"/>
+                                                    <action selector="didTapCopy:" target="XfG-lQ-9wD" id="5Wq-wf-JVz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -996,7 +996,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="837" height="135"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" incrementalSearchingEnabled="YES" smartInsertDelete="YES" id="5PR-EP-OEz">
+                                                <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" incrementalSearchingEnabled="YES" smartInsertDelete="YES" id="5PR-EP-OEz" customClass="RegexHighlightingTextView" customModule="Regex_Tester" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="837" height="135"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
