@@ -49,7 +49,7 @@ class RegexViewController: NSViewController {
         guard regex != nil else { return }
 
         let output = ["let regexStr = \"\(escapedRegexField.stringValue)\"",
-            "let regex = try? NSRegularExpression(pattern: regexStr, options: [\(options.stringValue)])"].joined(separator: "\n")
+            "let regex = try? NSRegularExpression(pattern: regexStr, options: \(options.stringValue))"].joined(separator: "\n")
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(output, forType: .string)
     }

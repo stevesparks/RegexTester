@@ -7,7 +7,7 @@ The `opts` button allows you to toggle all the options in the `NSRegularExpressi
 
 ```swift
 let regexStr = "commit ([0-9a-f]{40}).*?(Merge: [0-9a-f ]{15}\\n)?\\nAuthor: (.*?)\\nDate:   (.*?)\\n(.*?\\n\\n)"
-let regex = try? NSRegularExpression(pattern: regexStr, options: [[.dotMatchesLineSeparators]])
+let regex = try? NSRegularExpression(pattern: regexStr, options: [.dotMatchesLineSeparators])
 ```
 
 which you can paste into your code and mod at will.*
